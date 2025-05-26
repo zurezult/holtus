@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Mood {
+  id        Int      @id @default(autoincrement())
+  happy     Int
+  cheerful  Int
+  tired     Int
+  naughty   Int
+  horny     Int
+  hungry    Int
+  hungover  Int
+  drunk     Int
+  created   DateTime @default(now())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+  id        Int      @id @default(autoincrement())
+  gaming    Int
+  music     Int
+  talking   Int
+  swimming  Int
+  sports    Int
+  sleep     Int
+  sailing   Int
+  annoying  Int
+  boring    Int
+  sitting   Int
+  other     Int
+  created   DateTime @default(now())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+model Drink {
+  id        Int      @id @default(autoincrement())
+  beer      Int
+  coffee    Int
+  cocktail  Int
+  water     Int
+  softdrink Int
+  other     Int
+  created   DateTime @default(now())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+model Eat {
+  id        Int      @id @default(autoincrement())
+  breakfast Int
+  lunch     Int
+  diner     Int
+  snack     Int
+  crisps    Int
+  nuts      Int
+  desert    Int
+  icecream  Int
+  created   DateTime @default(now())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+model Output {
+  id        Int      @id @default(autoincrement())
+  piss      Int
+  shit      Int
+  throwup   Int
+  bleeding  Int
+  created   DateTime @default(now())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+
+model Promilage {
+  id        Int      @id @default(autoincrement())
+  promilage Float
+  created   DateTime @default(now())
+  userId    Int
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  name      String
+  age       Int
+  weight    Int
+  height    Int
+  skinColor String
+  moods     Mood[]
+  activities  Activity[]
+  drinks    Drink[] 
+  eats      Eat[]
+  outputs   Output[]
+  promilage Promilage[]
+}
+

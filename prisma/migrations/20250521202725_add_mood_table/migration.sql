@@ -1,0 +1,15 @@
+-- CreateTable
+CREATE TABLE "Mood" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "happy" INTEGER NOT NULL,
+    "cheerful" INTEGER NOT NULL,
+    "tired" INTEGER NOT NULL,
+    "naughty" INTEGER NOT NULL,
+    "horny" INTEGER NOT NULL,
+    "hungry" INTEGER NOT NULL,
+    "hungover" INTEGER NOT NULL,
+    "drunk" INTEGER NOT NULL,
+    "created" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "Mood_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);

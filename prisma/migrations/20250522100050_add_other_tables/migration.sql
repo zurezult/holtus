@@ -1,0 +1,60 @@
+-- CreateTable
+CREATE TABLE "Activity" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "gaming" INTEGER NOT NULL,
+    "music" INTEGER NOT NULL,
+    "talking" INTEGER NOT NULL,
+    "swimming" INTEGER NOT NULL,
+    "sports" INTEGER NOT NULL,
+    "sleep" INTEGER NOT NULL,
+    "sailing" INTEGER NOT NULL,
+    "annoying" INTEGER NOT NULL,
+    "boring" INTEGER NOT NULL,
+    "sitting" INTEGER NOT NULL,
+    "other" INTEGER NOT NULL,
+    "created" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "Activity_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Drink" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "beer" INTEGER NOT NULL,
+    "coffee" INTEGER NOT NULL,
+    "cocktail" INTEGER NOT NULL,
+    "water" INTEGER NOT NULL,
+    "softdrink" INTEGER NOT NULL,
+    "other" INTEGER NOT NULL,
+    "created" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "Drink_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Eat" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "breakfast" INTEGER NOT NULL,
+    "lunch" INTEGER NOT NULL,
+    "diner" INTEGER NOT NULL,
+    "snack" INTEGER NOT NULL,
+    "crisps" INTEGER NOT NULL,
+    "nuts" INTEGER NOT NULL,
+    "desert" INTEGER NOT NULL,
+    "icecream" INTEGER NOT NULL,
+    "created" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "Eat_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Output" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "piss" INTEGER NOT NULL,
+    "shit" INTEGER NOT NULL,
+    "throwup" INTEGER NOT NULL,
+    "bleeding" INTEGER NOT NULL,
+    "created" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "userId" INTEGER NOT NULL,
+    CONSTRAINT "Output_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
